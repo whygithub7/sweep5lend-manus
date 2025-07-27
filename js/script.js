@@ -454,7 +454,7 @@ function initializeForm() {
     });
     
     // Submit form
-    form.addEventListener('submit', handleFormSubmit);
+    // form.addEventListener('submit', handleFormSubmit);
 }
 
 function validateField(e) {
@@ -624,7 +624,7 @@ function updateSelectedProduct(index) {
     
     // Aggiorniamo i campi nascosti del modulo
     document.getElementById('productName').value = product.name;
-    document.getElementById('productImage').value = product.image;
+    document.getElementById('productImage').value = location.origin + '/' +product.image;
     
     // Compiliamo i parametri UTM dall'URL
     const urlParams = new URLSearchParams(window.location.search);
