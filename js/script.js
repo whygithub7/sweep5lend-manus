@@ -13,7 +13,7 @@ const products = [
         name: "Viagra Connect Bundle",
         price: "€2,00",
         originalPrice: "€53,99",
-        image: "assets/images/viagra_connect_bundle.webp",
+        image: "assets/images/viagra/viagra_connect_bundle.webp",
         description: "Un set completo per il benessere maschile che include supporto naturale, preservativi premium con texture speciali e lubrificante di alta qualità."
     },
     {
@@ -29,23 +29,23 @@ const products = [
         name: "LoveBoxxx Sexy Surprise Egg",
         price: "€2,00",
         originalPrice: "€49,90",
-        image: "assets/images/loveboxxx_surprise_egg.webp",
-        description: "Un set che ti permette di esplorare i confini della passione e dell'intimità."
+        image: "assets/images/egg/egg4.png",
+        description: "Un set che ti permette di esplorare i confini della passione e dell’intimità. 14 accessori erotici per coppie, perfetti per ravvivare la relazione e scoprire nuove dimensioni del piacere."
     },
     {
         id: 4,
-        name: "The Aphrodisiac Affair Bundle",
+        name: "The Aphrodisiac Affair",
         price: "€2,00",
         originalPrice: "€127,00",
-        image: "assets/images/valentines_day_bundle.webp",
-        description: "Un'esperienza afrodisiaca completa con accessori premium, cioccolato sensuale e giochi per coppie."
+        image: "assets/images/affair/valentines_day_bundle.webp",
+        description: "Salta l’ordinario e vivi una notte di passione, gioco e connessione profonda con il nostro esclusivo bundle Dream Team & Date Night Chocolate."
     },
     {
         id: 5,
         name: "Set Intimità Esclusivo",
         price: "€2,00",
         originalPrice: "€39,95",
-        image: "assets/images/sesso_altalena_alla_porta.webp",
+        image: "assets/images/intim/main0.webp",
         description: "Un set personalizzato che include altalena per la porta, integratori per la libido, set Durex e dadi Kamasutra."
     }
 ];
@@ -924,32 +924,55 @@ function scrollToQuiz() {
 // Дополнительные изображения для каждого продукта
 const productImages = {
     0: [ // Viagra Connect Bundle
-        "assets/images/viagra_connect_bundle.webp",
-        "assets/images/viagra_connect_bundle_trolley.webp", 
-        "assets/images/viagra_connect_durex_bundle_1.webp",
-        "assets/images/durex_mutual_climax_condoms.webp"
+        "assets/images/viagra/viagra_connect_bundle.webp",
+        "assets/images/viagra/via3.png", 
+        "assets/images/viagra/via2.avif",
+        "assets/images/viagra/via4.webp",
+        "assets/images/viagra/via5.webp",
+        "assets/images/viagra/via6.webp"
     ],
     1: [ // Lovehoney Calendar
-        "assets/images/lovehoney_calendar.webp",
-        "assets/images/lovehoney_indulge_calendar_main.webp"
-    ],
+        "assets/images/calendar/lovehoney_calendar.webp",
+        "assets/images/calendar/lovehoney_indulge_calendar_main.webp",
+        "assets/images/calendar/cal2.png",
+        "assets/images/calendar/cal3.png",
+        "assets/images/calendar/cal4.png",
+        "assets/images/calendar/cal5.png"
+    ],  
     2: [ // LoveBoxxx Surprise Egg
-        "assets/images/loveboxxx_surprise_egg.webp",
-        "assets/images/loveboxxx_sexy_surprise_egg_main.webp",
-        "assets/images/loveboxxx_surprise_egg_detail_1.webp",
-        "assets/images/loveboxxx_surprise_egg_detail_2.webp"
+        "assets/images/egg/egg1.webp",
+        "assets/images/egg/egg3.webp",
+        "assets/images/egg/egg2.webp",
+        "assets/images/egg/egg4.png"
     ],
     3: [ // Valentine's Day Bundle
-        "assets/images/valentines_day_bundle.webp",
-        "assets/images/valentines_day_bundle_main.webp",
-        "assets/images/valentines_bundle_detail_1.webp",
-        "assets/images/valentines_bundle_detail_2.webp"
+        "assets/images/affair/valentines_day_bundle.webp",
+        "assets/images/affair/valentines_day_bundle_main.webp",
+        "assets/images/affair/valentines_bundle_detail_1.webp",
+        "assets/images/affair/valentines_bundle_detail_2.webp",
+        "assets/images/affair/val1.webp",
+        "assets/images/affair/val2.webp",
+        "assets/images/affair/val3.webp",
+        "assets/images/affair/val4.webp",
+        "assets/images/affair/val5.webp",
+        "assets/images/affair/val6.webp",
+        "assets/images/affair/val7.webp",
+        "assets/images/affair/val8.webp",
+        "assets/images/affair/val9.webp",
+        "assets/images/affair/val10.webp"
     ],
     4: [ // Set Intimità Esclusivo
-        "assets/images/sesso_altalena_alla_porta.webp",
-        "assets/images/couples_libido_gummies_main.webp",
-        "assets/images/durex_coffret_lubrifiant_preservatifs.webp",
-        "assets/images/dado_kamasutra_sex_toys.webp"
+        "assets/images/intim/main0.webp",
+        "assets/images/intim/main.webp",
+        "assets/images/intim/couples_libido_gummies_main.webp",
+        "assets/images/intim/in2.webp",
+        "assets/images/intim/dado_kamasutra_sex_toys.webp",
+        "assets/images/intim/in1.jpg",
+        "assets/images/intim/lubr.avif",
+        "assets/images/intim/gum1.webp", 
+        "assets/images/intim/gum2.webp", 
+        "assets/images/intim/gum3.webp"
+
     ]
 };
 
@@ -960,29 +983,29 @@ const detailedProducts = [
         name: "Viagra Connect Bundle",
         originalPrice: "€107,98",
         currentPrice: "€2,00",
-        image: "assets/images/viagra_connect_bundle.webp",
-        description: "Un set completo per il benessere maschile che include supporto naturale, preservativi premium con texture speciali e lubrificante di alta qualità.",
+        image: "assets/images/viagra/viagra_connect_bundle.webp",
+        description: "Un set completo per il benessere maschile che combina Viagra Connect per uomini maggiorenni, preservativi Durex con texture speciali e un lubrificante di alta qualità per incontri sicuri e appaganti.",
         features: [
-            "Supporto naturale per uomini 18+",
-            "Preservativi con texture premium", 
-            "Lubrificante di qualità superiore",
-            "Consultare sempre un medico"
+            "Viagra Connect destinato esclusivamente agli uomini 18+",
+            "Preservativi Durex con nervature, punti e lubrificante Performa per ritardare l’orgasmo",
+            "Lubrificante a base d’acqua adatto a sesso vaginale, anale e orale",
+            "Non adatto alle donne."
         ],
-        detailedDescription: "Il kit contiene Viagra Connect, Durex Play Feel Lubricant e Durex Ultimate Mutual Climax Condoms. Viagra Connect è destinato agli uomini 18+ con difficoltà nel raggiungere e/o mantenere l'erezione. Durex Play Feel Lubricant è adatto per il sesso vaginale, anale o orale. I preservativi Durex Mutual Climax hanno nervature, punti e lubrificante Performa.",
+        detailedDescription: "Il kit include 8 compresse da 50 mg di Viagra Connect per uomini che hanno difficoltà a raggiungere o mantenere l’erezione, il lubrificante Durex Play Feel per utilizzo vaginale, anale o orale e i preservativi Durex Ultimate Mutual Climax dotati di nervature, punti e lubrificante Performa che aiutano a prolungare il piacere. Il set è dedicato agli uomini e richiede la consulenza di un medico in caso di condizioni di salute.",
         components: [
             {
-                name: "Viagra Connect tablets",
-                description: "8 compresse da 50mg per uomini 18+",
+                name: "Viagra Connect (8 compresse)",
+                description: "8 compresse da 50 mg per uomini 18+ con difficoltà erettile",
                 price: "Componente principale"
             },
             {
                 name: "Durex Ultimate Mutual Climax Condoms",
-                description: "Preservativi con nervature, punti e lubrificante Performa",
+                description: "Preservativi con nervature, punti e lubrificante Performa per ritardare l’orgasmo",
                 price: "Incluso nel set"
             },
             {
                 name: "Durex Play Feel Lubricant",
-                description: "Lubrificante di qualità per tutti i tipi di intimità",
+                description: "Lubrificante a base d’acqua adatto a sesso vaginale, anale o orale",
                 price: "Incluso nel set"
             }
         ]
@@ -992,30 +1015,80 @@ const detailedProducts = [
         name: "Lovehoney Indulge Sex Toy Advent Calendar",
         originalPrice: "€198,00",
         currentPrice: "€2,00",
-        image: "assets/images/lovehoney_calendar.webp",
-        description: "Una collezione esclusiva di 12 accessori premium per esplorare nuove dimensioni dell'intimità. Ogni pezzo è stato selezionato per offrire un'esperienza unica.",
+        image: "assets/images/calendar/lovehoney_calendar.webp",
+        description: "Una collezione esclusiva di 12 accessori premium per esplorare nuove dimensioni dell’intimità. Include stimolatori, vibratori, accessori per bondage leggero e prodotti per la cura personale.",
         features: [
-            "12 accessori premium selezionati",
-            "Stimolatore con tecnologia avanzata",
-            "Accessori per il benessere intimo",
-            "Prodotti per la cura e l'igiene"
+            "12 accessori premium selezionati per il piacere e il benessere",
+            "Stimolatore clitorideo e G‑spot con tecnologia Pleasure Air",
+            "Vibratori ricaricabili e mini wand con diverse velocità e modalità",
+            "Accessori per giochi di coppia, allenamento del pavimento pelvico e prodotti per la cura e l’igiene"
         ],
-        detailedDescription: "12 prodotti, inclusi giocattoli. Costo £99 (valore del contenuto £233). Destinato alle donne per giochi di coppia e individuali.",
+        detailedDescription: "Il calendario dell’Avvento Indulge contiene 12 accessori studiati per il piacere femminile: stimolatore clitorideo e G‑spot con 10 livelli di suzione e 10 modalità di vibrazione, bullet ricaricabile USB con 3 velocità e 7 pattern, mini wand per massaggi esterni con 3 velocità e 7 pattern, palline Kegel da 54 g in silicone per rafforzare il pavimento pelvico, pinze per capezzoli regolabili in metallo con punte in silicone, dildo sagomato per il punto G, plug anale in metallo con cristallo, beads anali in silicone per principianti, guaina vibrante per dito con anello, mascherina in raso con pizzo per giochi sensoriali, balsamo orgasmico alla menta da applicare esternamente, salviette igienizzanti con aloe e amamelide e gel lubrificante a base d’acqua da 60 ml.",
         components: [
             {
-                name: "Premium Vibrators",
-                description: "Vibratori di alta qualità di varie dimensioni",
-                price: "Componenti principali"
+                name: "Indulge Clitoral & G‑Spot Stimulator",
+                description: "Stimolatore clitorideo e G‑spot con 10 livelli di suzione e 10 modalità di vibrazione grazie alla tecnologia Pleasure Air",
+                price: "Incluso"
             },
             {
-                name: "Intimate Care Products",
-                description: "Prodotti per la cura e l'igiene intima",
-                price: "Incluso nel set"
+                name: "Bullet vibratore ricaricabile",
+                description: "Vibratore compatto impermeabile con 3 velocità e 7 pattern, utilizzabile da solo o con altri accessori",
+                price: "Incluso"
             },
             {
-                name: "Accessories",
-                description: "Accessori aggiuntivi per il piacere",
-                price: "Incluso nel set"
+                name: "Mini wand vibratore",
+                description: "Mini wand per massaggi esterni con 3 velocità e 7 modalità, ideale per i viaggi",
+                price: "Incluso"
+            },
+            {
+                name: "Palline Kegel",
+                description: "Palline da 54 g in silicone per allenare il pavimento pelvico",
+                price: "Incluso"
+            },
+            {
+                name: "Pinze per capezzoli",
+                description: "Pinze regolabili color oro rosa con punte in silicone viola",
+                price: "Incluso"
+            },
+            {
+                name: "Dildo sagomato per punto G",
+                description: "Dildo in silicone sagomato per stimolare il punto G, compatibile con bullet",
+                price: "Incluso"
+            },
+            {
+                name: "Plug anale con cristallo",
+                description: "Plug anale in metallo color oro rosa con cristallo viola, elegante e sicuro",
+                price: "Incluso"
+            },
+            {
+                name: "Beads anali",
+                description: "Catena di beads in silicone per principianti, utilizzabile con bullet",
+                price: "Incluso"
+            },
+            {
+                name: "Guaina vibrante per dito",
+                description: "Rivestimento in silicone per il dito con anello di sostegno, compatibile con bullet",
+                price: "Incluso"
+            },
+            {
+                name: "Mascherina in raso",
+                description: "Mascherina viola e nera in raso con dettagli in pizzo per giochi sensoriali",
+                price: "Incluso"
+            },
+            {
+                name: "Balsamo orgasmico alla menta",
+                description: "Balsamo in latta color oro rosa da applicare esternamente per intensificare le sensazioni",
+                price: "Incluso"
+            },
+            {
+                name: "Salviette igienizzanti",
+                description: "Salviette con aloe e amamelide per la pulizia dei sex toys",
+                price: "Incluso"
+            },
+            {
+                name: "Gel lubrificante a base d’acqua (60 ml)",
+                description: "Gel lubrificante delicato a base d’acqua compatibile con tutti i prodotti",
+                price: "Incluso"
             }
         ]
     },
@@ -1024,66 +1097,71 @@ const detailedProducts = [
         name: "LoveBoxxx Sexy Surprise Egg",
         originalPrice: "€252,00",
         currentPrice: "€2,00",
-        image: "assets/images/loveboxxx_surprise_egg.webp",
-        description: "Un'esperienza afrodisiaca completa con accessori premium, cioccolato sensuale e giochi per coppie. Perfetto per serate romantiche indimenticabili.",
+        image: "assets/images/egg/egg4.png",
+        description: "Un set che ti permette di esplorare i confini della passione e dell’intimità. 14 accessori erotici per coppie, perfetti per ravvivare la relazione e scoprire nuove dimensioni del piacere.",
         features: [
-            "Set di 4 accessori con telecomando",
-            "Cioccolato afrodisiaco premium",
-            "Gioco \"Verità o Sfida\" per coppie",
-            "Playlist sensuale curata"
+            "Set di ausili erotici ideali per le coppie",
+            "Selezione variegata di prodotti per l'intimità",
+            "Adatto a principianti e amanti esperti",
+            "Facile da usare"
         ],
-        detailedDescription: "Un set che permette di esplorare i confini della passione e dell'intimità. Prezzo €42,39 su varie piattaforme.",
+        detailedDescription: "Sorprendi la tua dolce metà con 14 giocattoli e accessori erotici: vibratore multivelocità, biancheria sexy, ausili per bondage leggero e strumenti per la cura del corpo. Materiali: ABS, PVC, TPE, metallo, poliestere. Dimensioni confezione: 25,5×17×17 cm. Usa con gel a base d'acqua e pulisci dopo ogni utilizzo.",
         components: [
             {
-                name: "Remote Control Accessories",
-                description: "4 accessori con telecomando",
-                price: "Componenti principali"
+                name: "5× Ausili Erotici",
+                description: "Incluso vibratore multivelocità e altri stimolatori per diversi livelli di piacere.",
+                price: "Incluso"
             },
             {
-                name: "Aphrodisiac Chocolate",
-                description: "Cioccolato sensuale premium",
-                price: "Incluso nel set"
+                name: "1× Biancheria Intima Sexy",
+                description: "Mutandine con cavallo aperto per giochi sensuali.",
+                price: "Incluso"
             },
             {
-                name: "Couple's Games",
-                description: "Gioco \"Verità o Sfida\" per coppie",
-                price: "Incluso nel set"
+                name: "4× Ausili per Bondage Leggero",
+                description: "Manette, maschera per occhi e altri accessori per esplorare il bondage in modo sicuro.",
+                price: "Incluso"
+            },
+            {
+                name: "4× Strumenti per la Cura del Corpo",
+                description: "Accessori divertenti per massaggi e giochi di coppia.",
+                price: "Incluso"
             }
         ]
     },
     {
         id: 3,
-        name: "The Aphrodisiac Affair Bundle",
-        originalPrice: "€79,90",
+        name: "The Aphrodisiac Affair",
+        originalPrice: "€127,00",
         currentPrice: "€2,00",
-        image: "assets/images/valentines_day_bundle.webp",
-        description: "Altalena premium in pelle sintetica di alta qualità, progettata per offrire nuove esperienze di intimità. Facile da installare e regolabile.",
+        image: "assets/images/affair/valentines_day_bundle.webp",
+        description: "Bundle esclusivo che unisce il set di vibratori Dream Team con deliziosi cioccolatini afrodisiaci, un mazzo di carte Verità o Sfida e una playlist sensuale.",
         features: [
-            "Materiale: pelle sintetica premium",
-            "Capacità massima: 150 kg",
-            "Cinghie facilmente regolabili",
-            "Installazione semplice su porta"
+            "Dream Team: 4 vibratori (anello fallico regolabile, panty vibrator, plug anale vibrante e disco stick) controllati da telecomando con 8 modalità",
+            "Materiali sicuri per il corpo, resistenti agli spruzzi e ricaricabili tramite USB",
+            "Date Night Chocolate: tavoletta di cioccolato fondente 60% con fragole e cayenna infusa con maca, ginseng e damiana, con carte Verità o Sfida",
+            "Include gioco Twister, custodia, cavo USB e link a una playlist sensuale"
         ],
-        detailedDescription: "Set Dream Team: telecomando e gioco spinner per un'esplorazione giocosa. Elegante set blu scuro con quattro vibratori, cioccolato per appuntamenti, gioco \"Verità o Sfida\", playlist sensuale.",
+        detailedDescription: "Il set Dream Team comprende quattro giocattoli telecomandati progettati per giocare in coppia: un anello fallico regolabile che migliora la circolazione e stimola il clitoride, un vibratore per slip con 8 modalità di vibrazione, un plug anale vibrante e un disco stick multiuso. I dispositivi sono realizzati in silicone sicuro per il corpo, resistenti agli spruzzi, dotati di motore intercambiabile e si ricaricano rapidamente tramite USB; la confezione include telecomando wireless, ruota della fortuna, custodia, manuale, cavo USB e un gioco Twister. Il Date Night Chocolate è una tavoletta di cioccolato fondente al 60% con fragole liofilizzate e cayenna, arricchito con erbe afrodisiache come maca, panax ginseng e damiana; la confezione contiene anche carte Verità o Sfida e un link a una playlist musicale per creare atmosfera. Questo bundle rafforza l’intimità e rende speciali serate romantiche e anniversari.",
         components: [
             {
-                name: "Dream Team Set",
-                description: "Telecomando e 4 vibratori (plug anale, anello, vibratore inseribile, vibratore a penna)",
+                name: "Dream Team Set",
+                description: "Telecomando, ruota della fortuna, 4 vibratori (anello fallico regolabile, panty vibrator, plug anale vibrante e disco stick), motore intercambiabile, custodia, gioco Twister e cavo USB",
                 price: "Incluso nel set"
             },
             {
-                name: "Date Night Chocolate",
-                description: "Cioccolato decadente per creare l'atmosfera romantica",
+                name: "Date Night Chocolate",
+                description: "Tavoletta di cioccolato fondente 60% con fragole e cayenna infusa con maca, ginseng e damiana; include carte Verità o Sfida e link a playlist",
                 price: "Incluso nel set"
             },
             {
-                name: "Truth or Dare Game",
-                description: "Gioco con sfide giocose per coppie",
+                name: "Gioco ‘Verità o Sfida’",
+                description: "Mazzo di carte con sfide piccanti per coppie",
                 price: "Incluso nel set"
             },
             {
-                name: "Sensual Playlist",
-                description: "Musica accuratamente selezionata per una notte indimenticabile",
+                name: "Playlist sensuale",
+                description: "Link a playlist musicale per creare l’atmosfera durante la serata",
                 price: "Incluso nel set"
             }
         ]
@@ -1093,35 +1171,35 @@ const detailedProducts = [
         name: "Set Intimità Esclusivo",
         originalPrice: "€144,00",
         currentPrice: "€2,00",
-        image: "assets/images/sesso_altalena_alla_porta.webp",
-        description: "Integratori naturali formulati specificamente per uomo e donna, con ingredienti botanici clinicamente testati per il benessere intimo.",
+        image: "assets/images/intim/main0.webp",
+        description: "Set completo per la coppia che combina una altalena da porta, integratori naturali per la libido, un set Durex per esplorare nuove sensazioni e un dado Kamasutra per giocare.",
         features: [
-            "Formula naturale con botanici",
-            "Ingredienti clinicamente testati",
-            "Gusto delizioso al frutto della passione",
-            "Fornitura per 32 giorni per due persone"
+            "Altalena da porta con capacità di 150 kg e cinghie regolabili",
+            "Integratori a base di ingredienti naturali per aumentare la libido di entrambi",
+            "Set Durex Deep & Deeper con plug anali e lubrificante a base d’acqua",
+            "Dado a 6 facce con posizioni del Kamasutra per giochi erotici"
         ],
-        detailedDescription: "Set personalizzato che include altalena per porta, integratori per la libido, set Durex e dadi del Kamasutra.",
+        detailedDescription: "Questo set personalizzato offre tutto il necessario per ravvivare l’intimità: un’altalena da porta realizzata in pelle sintetica e poliestere con capacità massima di 150 kg; si aggancia facilmente sopra la porta grazie a cinghie regolabili ed è adatta a uomini e donne. La confezione comprende anche integratori libidinali per lui e lei sotto forma di gummies a base di ingredienti naturali come L‑citrullina, L‑arginina, complesso S7 e botanici adattogeni; le caramelle hanno gusto al frutto della passione, sono vegane, a basso contenuto di zuccheri e forniscono una fornitura per 32 giorni. Il Coffret Durex Deep & Deeper abbina un set di plug anali di diverse dimensioni e il lubrificante a base d’acqua Durex Play Feel da 100 ml per esplorare nuove sensazioni con la qualità e la discrezione di Durex. Infine, il dado Kamasutra a sei facce propone diverse posizioni sessuali da seguire per aggiungere un elemento di gioco all’intimità.",
         components: [
             {
-                name: "Sesso Altalena alla Porta",
-                description: "Altalena intima per porta, carico max 150 kg, pelle sintetica",
-                price: "€39,95"
+                name: "Altalena da porta",
+                description: "Altalena intima da fissare alla porta in pelle sintetica e poliestere con cinghie regolabili; capacità massima 150 kg",
+                price: "Incluso"
             },
             {
                 name: "Couples Libido Gummies",
-                description: "Caramelle gommose naturali per aumentare la libido delle coppie",
-                price: "$72"
+                description: "Gummies per lui e lei con ingredienti come L‑citrullina, L‑arginina, S7 e botanici adattogeni; gusto frutto della passione; vegane e a basso contenuto di zuccheri; fornitura per 32 giorni",
+                price: "Incluso"
             },
             {
-                name: "Coffret Durex",
-                description: "Set Durex con lubrificante di qualità e preservativi ultrasottili",
-                price: "20,00 €"
+                name: "Coffret Durex Deep & Deeper",
+                description: "Set con plug anali di diverse dimensioni e lubrificante a base d’acqua Durex Play Feel da 100 ml",
+                price: "Incluso"
             },
             {
-                name: "Dado Kamasutra d6",
-                description: "Dadi da gioco con 12 posizioni del Kamasutra per giochi erotici",
-                price: "EUR 9,90"
+                name: "Dado Kamasutra",
+                description: "Dado a sei facce con posizioni del Kamasutra per giochi erotici",
+                price: "Incluso"
             }
         ]
     }
