@@ -21,7 +21,7 @@ const products = [
         name: "Lovehoney Indulge Sex Toy Advent Calendar",
         price: "€2,00",
         originalPrice: "€99,00",
-        image: "assets/images/lovehoney_calendar.webp",
+        image: "assets/images/сalendar/lovehoney_calendar.webp",
         description: "Una collezione esclusiva di 12 accessori premium per esplorare nuove dimensioni dell'intimità."
     },
     {
@@ -932,12 +932,12 @@ const productImages = {
         "assets/images/viagra/via6.webp"
     ],
     1: [ // Lovehoney Calendar
-        "assets/images/calendar/lovehoney_calendar.webp",
-        "assets/images/calendar/lovehoney_indulge_calendar_main.webp",
-        "assets/images/calendar/cal2.png",
-        "assets/images/calendar/cal3.png",
-        "assets/images/calendar/cal4.png",
-        "assets/images/calendar/cal5.png"
+        "assets/images/сalendar/lovehoney_calendar.webp",
+        "assets/images/сalendar/lovehoney_indulge_calendar_main.webp",
+        "assets/images/сalendar/cal2.png",
+        "assets/images/сalendar/cal3.png",
+        "assets/images/сalendar/cal4.png",
+        "assets/images/сalendar/cal5.png"
     ],  
     2: [ // LoveBoxxx Surprise Egg
         "assets/images/egg/egg1.webp",
@@ -1015,7 +1015,7 @@ const detailedProducts = [
         name: "Lovehoney Indulge Sex Toy Advent Calendar",
         originalPrice: "€198,00",
         currentPrice: "€2,00",
-        image: "assets/images/calendar/lovehoney_calendar.webp",
+        image: "assets/images/сalendar/lovehoney_calendar.webp",
         description: "Una collezione esclusiva di 12 accessori premium per esplorare nuove dimensioni dell’intimità. Include stimolatori, vibratori, accessori per bondage leggero e prodotti per la cura personale.",
         features: [
             "12 accessori premium selezionati per il piacere e il benessere",
