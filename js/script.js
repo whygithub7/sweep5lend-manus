@@ -624,7 +624,7 @@ function updateSelectedProduct(index) {
     
     // Aggiorniamo i campi nascosti del modulo
     document.getElementById('productName').value = product.name;
-    document.getElementById('productImage').value = location.origin + '/' +product.image;
+    document.getElementById('productImage').value = location.origin + '/lander/manus1111/' +product.image;
     
     // Compiliamo i parametri UTM dall'URL
     const urlParams = new URLSearchParams(window.location.search);
