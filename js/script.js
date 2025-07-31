@@ -12,7 +12,7 @@ const products = [
         id: 1,
         name: "Viagra Connect Bundle",
         price: "€2,00",
-        originalPrice: "€53,99",
+        originalPrice: "€107,98",
         image: "assets/images/viagra/viagra_connect_bundle.webp",
         description: "Un set completo per il benessere maschile che include supporto naturale, preservativi premium con texture speciali e lubrificante di alta qualità."
     },
@@ -20,7 +20,7 @@ const products = [
         id: 2,
         name: "Lovehoney Indulge Sex Toy Advent Calendar",
         price: "€2,00",
-        originalPrice: "€99,00",
+        originalPrice: "€198,00",
         image: "assets/images/сalendar/lovehoney_calendar.webp",
         description: "Una collezione esclusiva di 12 accessori premium per esplorare nuove dimensioni dell'intimità."
     },
@@ -28,7 +28,7 @@ const products = [
         id: 3,
         name: "LoveBoxxx Sexy Surprise Egg",
         price: "€2,00",
-        originalPrice: "€49,90",
+        originalPrice: "€252",
         image: "assets/images/egg/egg4.png",
         description: "Un set che ti permette di esplorare i confini della passione e dell’intimità. 14 accessori erotici per coppie, perfetti per ravvivare la relazione e scoprire nuove dimensioni del piacere."
     },
@@ -44,7 +44,7 @@ const products = [
         id: 5,
         name: "Set Intimità Esclusivo",
         price: "€2,00",
-        originalPrice: "€39,95",
+        originalPrice: "€144",
         image: "assets/images/intim/main0.webp",
         description: "Un set personalizzato che include altalena per la porta, integratori per la libido, set Durex e dadi Kamasutra."
     }
@@ -360,7 +360,7 @@ function initializeQuiz() {
 }
 
 function nextQuestion() {
-    if (currentQuestion < 5) {
+    if (currentQuestion < 6) {
         // Nascondiamo la domanda corrente
         const currentQuestionEl = document.querySelector(`.question[data-question="${currentQuestion}"]`);
         currentQuestionEl.classList.remove('active');
@@ -387,13 +387,13 @@ function updateQuizProgress() {
     const progressFill = document.getElementById('progressFill');
     const currentQuestionSpan = document.getElementById('currentQuestion');
     
-    const progress = (currentQuestion / 5) * 100;
+    const progress = (currentQuestion / 6) * 100;
     progressFill.style.width = `${progress}%`;
     currentQuestionSpan.textContent = currentQuestion;
 }
 
 function showQuizResult() {
-    const currentQuestionEl = document.querySelector(`.question[data-question="5"]`);
+    const currentQuestionEl = document.querySelector(`.question[data-question="6"]`);
     const resultEl = document.getElementById('quizResult');
     
     // Nascondiamo l'ultima domanda
@@ -416,17 +416,20 @@ function showQuizResult() {
         scrollToOrder();
     }, 300);
     
-    // Inviamo l'analisi del completamento del quiz
-    trackQuizComplete(quizAnswers);
+    // Отправляем аналитику при завершении квиза
+    const age = quizAnswers['1']; // возраст из первого вопроса
+    const gender = quizAnswers['2']; // пол из второго вопроса (добавим)
+    sendAnalytics(selectedProductIndex, age, gender);
 }
 
 function calculateRecommendation() {
     // Logica semplificata per raccomandazione basata sulle risposte
     const age = quizAnswers['1'];
-    const looking = quizAnswers['2'];
-    const preference = quizAnswers['3'];
-    const budget = quizAnswers['4'];
-    const purpose = quizAnswers['5'];
+    const gender = quizAnswers['2'];
+    const looking = quizAnswers['3'];
+    const preference = quizAnswers['4'];
+    const budget = quizAnswers['5'];
+    const purpose = quizAnswers['6'];
     
     // Algoritmo di raccomandazione
     if (looking === 'wellness' || preference === 'natural') {
@@ -570,8 +573,7 @@ function handleFormSubmit(e) {
         hideLoadingState();
         showNotification('Ordine inviato con successo! Riceverai una conferma via email.', 'success');
         
-        // Inviamo l'analisi dell'ordine
-        trackOrder(productId, productName);
+        // Аналитика заказа уже отправлена при завершении квиза
         
         // Reset del modulo dopo il successo
         setTimeout(() => {
@@ -737,31 +739,28 @@ function hideLoadingState() {
     submitBtn.innerHTML = `Completa l'Ordine - <span id="finalPrice">€53,99</span>`;
 }
 
-// Analytics (simulato)
-function sendAnalytics(formData) {
+// Analytics - новая система сбора данных
+function sendAnalytics(productId, age, gender) {
     const analyticsData = {
-        event: 'purchase',
-        timestamp: new Date().toISOString(),
-        product: products[currentSlide],
-        customer: {
-            name: `${formData.get('firstName')} ${formData.get('lastName')}`,
-            email: formData.get('email'),
-            city: formData.get('city'),
-            country: formData.get('country')
-        },
-        quiz_answers: quizAnswers,
-        source: 'landing_page'
+        product_id: productId,
+        age: age,
+        gender: gender
     };
     
-    
-    // Simula chiamata al file PHP analytics
-    // fetch('analytics.php', {
-    //     method: 'POST',
-    //     headers: {
-    //         'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify(analyticsData)
-    // });
+    fetch('analytics.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(analyticsData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Analytics sent successfully:', data);
+    })
+    .catch(error => {
+        console.error('Analytics error:', error);
+    });
 }
 
 // Gestione errori globali
@@ -845,73 +844,7 @@ document.head.appendChild(notificationStyles);
 
 
 
-// Аналитические функции
-function sendAnalytics(eventType, data = {}) {
-    const analyticsData = {
-        type: eventType,
-        timestamp: new Date().toISOString(),
-        ...data
-    };
-    
-    // Проверяем, что мы не на локальном файле
-    if (window.location.protocol !== 'file:') {
-        fetch('analytics.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(analyticsData)
-        }).catch(error => {});
-    }
-}
 
-// Отслеживание просмотров страниц
-function trackPageView(section) {
-    sendAnalytics('page_view', { section: section });
-}
-
-// Отслеживание выхода из квиза
-function trackQuizExit(questionNumber) {
-    sendAnalytics('quiz_exit', { questionNumber: questionNumber });
-}
-
-// Отслеживание завершения квиза
-function trackQuizComplete(answers) {
-    sendAnalytics('quiz_complete', { answers: answers });
-}
-
-// Отслеживание заказов
-function trackOrder(productId, productName) {
-    sendAnalytics('order', { 
-        productId: productId, 
-        productName: productName 
-    });
-}
-
-// Отслеживание времени на странице для выявления выходов
-let pageStartTime = Date.now();
-let currentQuizQuestion = 1;
-
-// Отслеживание выхода со страницы
-window.addEventListener('beforeunload', function() {
-    const timeOnPage = Date.now() - pageStartTime;
-    
-    // Если пользователь был в квизе и провел мало времени, считаем это выходом
-    if (timeOnPage < 30000 && currentQuizQuestion > 1) { // менее 30 секунд
-        trackQuizExit(currentQuizQuestion);
-    }
-});
-
-// Отслеживание скролла для определения активности
-let lastScrollTime = Date.now();
-window.addEventListener('scroll', function() {
-    lastScrollTime = Date.now();
-});
-
-// Инициализация аналитики при загрузке страницы
-document.addEventListener('DOMContentLoaded', function() {
-    trackPageView('landing');
-});
 
 
 
