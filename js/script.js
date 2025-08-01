@@ -1330,6 +1330,3 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
-
-// Удаляем дублирующий обработчик DOMContentLoaded
-
