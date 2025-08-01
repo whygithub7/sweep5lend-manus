@@ -63,12 +63,33 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+            const href = this.getAttribute('href');
+            if (href && href !== "#") {
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+        });
+    });
+
+    // Добавить обработчик для всех ссылок в футере
+    document.querySelectorAll('footer a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            // Не трогаем кнопки select-product-btn и cta-button
+            if (e.target.closest('.select-product-btn') || e.target.closest('.cta-button')) return;
+            e.preventDefault();
+            const quiz = document.getElementById('quiz');
+            if (quiz && quiz.offsetParent !== null) {
+                quiz.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                const slider = document.getElementById('carouselTrack');
+                if (slider) {
+                    slider.scrollIntoView({ behavior: 'smooth' });
+                }
             }
         });
     });
@@ -549,7 +570,7 @@ function handleFormSubmit(e) {
     });
     
     if (!isFormValid) {
-        showNotification('Per favore, correggi gli errori nel modulo', 'error');
+        // showNotification('Per favore, correggi gli errori nel modulo', 'error');
         return;
     }
     
@@ -571,7 +592,7 @@ function handleFormSubmit(e) {
     
     setTimeout(() => {
         hideLoadingState();
-        showNotification('Ordine inviato con successo! Riceverai una conferma via email.', 'success');
+        // showNotification('Ordine inviato con successo! Riceverai una conferma via email.', 'success');
         
         // Аналитика заказа уже отправлена при завершении квиза
         
@@ -662,45 +683,6 @@ function closeLightbox() {
     document.body.style.overflow = '';
 }
 
-// Notifications
-function showNotification(message, type = 'info') {
-    const notification = document.createElement('div');
-    notification.className = `notification ${type}`;
-    notification.innerHTML = `
-        <div class="notification-content">
-            <span class="notification-icon">${type === 'success' ? '✅' : type === 'error' ? '❌' : 'ℹ️'}</span>
-            <span class="notification-message">${message}</span>
-        </div>
-    `;
-    
-    // Stili per la notifica
-    Object.assign(notification.style, {
-        position: 'fixed',
-        top: '20px',
-        right: '20px',
-        background: type === 'success' ? '#4CAF50' : type === 'error' ? '#f44336' : '#2196F3',
-        color: 'white',
-        padding: '15px 20px',
-        borderRadius: '10px',
-        boxShadow: '0 4px 20px rgba(0,0,0,0.3)',
-        zIndex: '10001',
-        animation: 'slideInRight 0.3s ease-out',
-        maxWidth: '400px'
-    });
-    
-    document.body.appendChild(notification);
-    
-    // Rimuovi dopo 5 secondi
-    setTimeout(() => {
-        notification.style.animation = 'slideOutRight 0.3s ease-in';
-        setTimeout(() => {
-            if (notification.parentNode) {
-                notification.parentNode.removeChild(notification);
-            }
-        }, 300);
-    }, 5000);
-}
-
 // Loading State
 function showLoadingState() {
     const submitBtn = document.querySelector('button[type="submit"]');
@@ -765,7 +747,7 @@ function sendAnalytics(productId, age, gender) {
 
 // Gestione errori globali
 window.addEventListener('error', function(e) {
-    showNotification('Si è verificato un errore. Ricarica la pagina e riprova.', 'error');
+    // showNotification('Si è verificato un errore. Ricarica la pagina e riprova.', 'error');
 });
 
 // Performance monitoring
@@ -783,69 +765,7 @@ document.addEventListener('visibilitychange', function() {
     }
 });
 
-// Aggiungi stili per le animazioni delle notifiche
-const notificationStyles = document.createElement('style');
-notificationStyles.textContent = `
-    @keyframes slideInRight {
-        from {
-            transform: translateX(100%);
-            opacity: 0;
-        }
-        to {
-            transform: translateX(0);
-            opacity: 1;
-        }
-    }
-    
-    @keyframes slideOutRight {
-        from {
-            transform: translateX(0);
-            opacity: 1;
-        }
-        to {
-            transform: translateX(100%);
-            opacity: 0;
-        }
-    }
-    
-    @keyframes popupSlideOut {
-        from {
-            opacity: 1;
-            transform: scale(1) translateY(0);
-        }
-        to {
-            opacity: 0;
-            transform: scale(0.8) translateY(-50px);
-        }
-    }
-    
-    .field-error {
-        animation: fadeInUp 0.3s ease-out;
-    }
-    
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(10px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-    
-    input.error, select.error {
-        border-color: var(--deep-pink) !important;
-        box-shadow: 0 0 0 3px rgba(199, 21, 133, 0.2) !important;
-    }
-`;
-
-document.head.appendChild(notificationStyles);
-
-
-
-
-
+// Удалить функцию showNotification и стили notificationStyles
 
 
 function scrollToQuiz() {

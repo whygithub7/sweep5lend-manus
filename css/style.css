@@ -2012,3 +2012,41 @@ body {
     }
 }
 
+.popup-instructions ol {
+    padding-left: 0;
+    margin-left: 0;
+    list-style: none;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.popup-instructions li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 1.08rem;
+    color: var(--dark-gray);
+}
+
+.popup-instructions li::before {
+    content: counter(item);
+    counter-increment: item;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2em;
+    height: 2em;
+    margin-right: 14px;
+    background: var(--gradient-primary);
+    color: #fff;
+    font-weight: bold;
+    font-family: var(--font-heading);
+    border-radius: 50%;
+    font-size: 1.1em;
+    box-shadow: 0 2px 8px rgba(199,21,133,0.10);
+}
+
+.popup-instructions ol {
+    counter-reset: item;
+}
+
